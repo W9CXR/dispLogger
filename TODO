@@ -1,0 +1,24 @@
+TODO List
+- Dispatch transcription accuracy
+    - I've noticed about a... 20% accuracy in dispatch transcription? Total dogass. No idea how to fix that. New algorithm maybe?
+    - This is probably the hardest issue to solve (likely the only showstopper I can think of)
+    - This addmittedly may be due to my absolutely awful trunk SDR setup... more testing required
+- Dispatch diliniation
+    - Dispatches need to be seperated into 4 parts:
+        - Units
+        - Call type
+        - Location
+        - Time out
+    - Time out is easy (and already taken care of) by using the datetime module to stamp when the dispatch is recorded
+    - (I get that technically that creates a slight difference in "real" TOT and logged TOT but I... frankly don't care)
+    - The real difficulty is Units... there is not surefire way to know how many units will be on an specific run (even if there is a normal number)
+    - My current best idea is to listen for 2 numbers next to each other or listen for a word besides a CAD unit (engine, ladder, etc)
+- FastAPI integration
+    - FastAPI would allow for an API so other applications can call the database so other websites/apps/whatever can be used as a frontend (I'm not building it I would rather die)
+    - If I call FastAPI with the dispatch data do I use the insertDispatch function in the main file or in the FastAPI file?
+    - API.py file is added, basic functions defined... nothing else set up. It's 1:30am.
+- Add single variable mic selection
+    - So... it's just used the right mic everytime I've tried it so this hasn't been a priority yet
+    - When it is, I'll fix it (I just don't know where you select the mic in pyaudio or speech_recognition)
+- Clean program startup and closing
+    - This looks to be multiple files, so if I can start everything up and close everything with a single script, that would be clean

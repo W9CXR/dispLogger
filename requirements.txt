@@ -1,2 +1,3 @@
 pyaudio
 speechrecognition
+fastapi[standard]
